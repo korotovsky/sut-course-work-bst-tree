@@ -3,12 +3,14 @@ package org.korotovsky.bst.tree;
 public class TreeNode<T> {
     private TreeNode<T> rightChild;
     private TreeNode<T> leftChild;
+    private TreeNode<T> parent;
     private Comparable key;
     private T data;
 
-    public TreeNode(Comparable key, T data) {
+    public TreeNode(TreeNode<T> parent, Comparable key, T data) {
         this.key = key;
         this.data = data;
+        this.parent = parent;
     }
 
     public Comparable getKey() {
@@ -37,5 +39,13 @@ public class TreeNode<T> {
 
     public void setLeftChild(TreeNode<T> leftChild) {
         this.leftChild = leftChild;
+    }
+
+    public TreeNode<T> getParent() {
+        return parent;
+    }
+
+    public String getLine() {
+        return "[" + getKey() + ", " + getData() + "]";
     }
 }

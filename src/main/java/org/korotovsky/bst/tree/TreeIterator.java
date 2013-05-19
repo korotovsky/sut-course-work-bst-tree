@@ -1,32 +1,108 @@
 package org.korotovsky.bst.tree;
 
-import java.util.Iterator;
+import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
-public class TreeIterator<T> implements Iterable<T> {
-    private Tree tree;
-    private TreeNode<T> currentNode;
+import java.util.ListIterator;
+import java.util.logging.Logger;
+
+public class TreeIterator<T> implements ListIterator<T> {
+    private Logger logger;
+    private TreeNode<T> root;
+
+    private TreeNode<T> nextNode;
+    private Comparable nextNodeIndex;
+
+    private TreeNode<T> previousNode;
+    private Comparable previousIndex;
 
     public TreeIterator(Tree tree) {
-        this.tree = tree;
+        TreeNode<T> root = tree.getRootNode();
+
+        this.logger = tree.getLogger();
+        this.previousNode = root;
+        this.nextNode = root;
+        this.root = root;
     }
 
     @Override
-    public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            @Override
-            public boolean hasNext() {
-                return false;  //To change body of implemented methods use File | Settings | File Templates.
+    public boolean hasNext() {
+        return nextNode != null;
+    }
+
+    @Override
+    public T next() {
+        if (nextNode == null) {
+            logger.warning(new NotFoundTreeException(TreeBase.TREE_NODE_NOT_FOUND).getMessage());
+        }
+
+        T value = nextNode.getData();
+
+        if (nextNode.getLeftChild() != null) {
+            previousNode = nextNode;
+            nextNode = nextNode.getLeftChild();
+        } else if (nextNode.getRightChild() != null) {
+            previousNode = nextNode;
+            nextNode = nextNode.getRightChild();
+        } else {
+            /**
+             * Leaf node visited
+             */
+            TreeNode<T> parent = nextNode.getParent();
+            TreeNode<T> child = nextNode;
+
+            while (parent != null && (parent.getRightChild() == child
+                    || parent.getRightChild() == null
+            )) {
+                child = parent;
+                parent = parent.getParent();
             }
 
-            @Override
-            public T next() {
-                return null;  //To change body of implemented methods use File | Settings | File Templates.
+            if (parent == null) {
+                previousNode = null;
+                nextNode = null; // the traversal is complete
+            } else {
+                previousNode = parent;
+                nextNode = parent.getRightChild();
             }
+        }
 
-            @Override
-            public void remove() {
-                //To change body of implemented methods use File | Settings | File Templates.
-            }
-        };
+        return value;
+    }
+
+    @Override
+    public boolean hasPrevious() {
+        return previousNode != null;
+    }
+
+    @Override
+    public T previous() {
+        T value = previousNode.getData();
+
+        return value;
+    }
+
+    @Override
+    public int nextIndex() {
+        return 0;
+    }
+
+    @Override
+    public int previousIndex() {
+        return 0;
+    }
+
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void set(T t) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void add(T t) {
+        throw new UnsupportedOperationException();
     }
 }

@@ -14,7 +14,7 @@ interface TreeInterface<T> {
 
     public TreeNode<T> findNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException;
 
-    public TreeNode<T> createNode(Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException;
+    public TreeNode<T> createNode(TreeNode<T> parent, Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException;
 
     public TreeNode<T> removeNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException;
 }

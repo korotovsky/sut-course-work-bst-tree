@@ -43,16 +43,16 @@ public class TreeBase<T> implements TreeInterface<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public TreeNode<T> createNode(Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException {
+    public TreeNode<T> createNode(TreeNode<T> parent, Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException {
         if (treeNode == null) {
-            treeNode = new TreeNode(key, data);
+            treeNode = new TreeNode(parent, key, data);
             changeTreeSize(1);
 
         } else if (key.compareTo(treeNode.getKey()) < 0) {
-            treeNode.setLeftChild(createNode(key, data, treeNode.getLeftChild()));
+            treeNode.setLeftChild(createNode(treeNode, key, data, treeNode.getLeftChild()));
 
         } else if (key.compareTo(treeNode.getKey()) > 0) {
-            treeNode.setRightChild(createNode(key, data, treeNode.getRightChild()));
+            treeNode.setRightChild(createNode(treeNode, key, data, treeNode.getRightChild()));
 
         } else {
             throw new DuplicateItemTreeException(TREE_NODE_ALREADY_EXISTS);
