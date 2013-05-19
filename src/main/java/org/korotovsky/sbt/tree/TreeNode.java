@@ -1,8 +1,8 @@
 package org.korotovsky.sbt.tree;
 
 public class TreeNode<T> {
-    private TreeNode rightChild;
-    private TreeNode leftChild;
+    private TreeNode<T> rightChild;
+    private TreeNode<T> leftChild;
     private Comparable key;
     private T data;
 
@@ -23,19 +23,19 @@ public class TreeNode<T> {
         this.key = key;
     }
 
-    public TreeNode getRightChild() {
+    public TreeNode<T> getRightChild() {
         return rightChild;
     }
 
-    public void setRightChild(TreeNode rightChild) {
+    public void setRightChild(TreeNode<T> rightChild) {
         this.rightChild = rightChild;
     }
 
-    public TreeNode getLeftChild() {
+    public TreeNode<T> getLeftChild() {
         return leftChild;
     }
 
-    public void setLeftChild(TreeNode leftChild) {
+    public void setLeftChild(TreeNode<T> leftChild) {
         this.leftChild = leftChild;
     }
 }

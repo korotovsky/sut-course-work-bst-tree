@@ -16,7 +16,7 @@ public class Tree<T> extends TreeAbstract<T> {
         TreeNode<T> treeNode = null;
 
         try {
-            treeNode = find(key, root);
+            treeNode = findNode(key, root);
         } catch (NotFoundTreeException e) {
             logger.warning(e.getMessage());
         }
@@ -28,6 +28,14 @@ public class Tree<T> extends TreeAbstract<T> {
         try {
             root = createNode(key, data, root);
         } catch (DuplicateItemTreeException e) {
+            logger.warning(e.getMessage());
+        }
+    }
+
+    public void remove(Comparable key) {
+        try {
+            root = removeNode(key, root);
+        } catch (NotFoundTreeException e) {
             logger.warning(e.getMessage());
         }
     }
