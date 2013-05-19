@@ -12,14 +12,6 @@ public class Tree<T> extends TreeAbstract<T> {
         this.logger = logger;
     }
 
-    public void create(Comparable key, T data) {
-        try {
-            root = createNode(key, data, root);
-        } catch (DuplicateItemTreeException e) {
-            logger.warning(e.getMessage());
-        }
-    }
-
     public TreeNode<T> find(Comparable key) {
         TreeNode<T> treeNode = null;
 
@@ -30,6 +22,14 @@ public class Tree<T> extends TreeAbstract<T> {
         }
 
         return treeNode;
+    }
+
+    public void create(Comparable key, T data) {
+        try {
+            root = createNode(key, data, root);
+        } catch (DuplicateItemTreeException e) {
+            logger.warning(e.getMessage());
+        }
     }
 
     public void clear() {

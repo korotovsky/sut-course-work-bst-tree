@@ -6,7 +6,7 @@ import org.korotovsky.sbt.tree.exceptions.NotFoundTreeException;
 public class TreeAbstract<T> implements TreeInterface<T> {
     public static final String TREE_NODE_ALREADY_EXISTS = "TreeNode already exists";
     public static final String TREE_NODE_NOT_FOUND = "TreeNode not found";
-    
+
     protected TreeNode<T> root;
     private Integer size = 0;
 
