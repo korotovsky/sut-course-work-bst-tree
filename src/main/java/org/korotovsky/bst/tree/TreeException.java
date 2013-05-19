@@ -1,6 +1,6 @@
 package org.korotovsky.bst.tree;
 
-public class TreeException extends RuntimeException {
+public class TreeException extends Exception {
     public TreeException() {
         super();
     }
