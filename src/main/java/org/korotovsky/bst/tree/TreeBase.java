@@ -3,7 +3,7 @@ package org.korotovsky.bst.tree;
 import org.korotovsky.bst.tree.exceptions.DuplicateItemTreeException;
 import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
-public class TreeAbstract<T> implements TreeInterface<T> {
+public class TreeBase<T> implements TreeInterface<T> {
     public static final String TREE_NODE_ALREADY_EXISTS = "TreeNode already exists";
     public static final String TREE_NODE_NOT_FOUND = "TreeNode not found";
 

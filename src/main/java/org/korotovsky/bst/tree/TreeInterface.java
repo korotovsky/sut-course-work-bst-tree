@@ -7,7 +7,7 @@ interface TreeInterface<T> {
     public void changeTreeSize(Integer how);
 
     public Boolean isEmpty();
-    
+
     public TreeNode<T> findNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException;
 
     public TreeNode<T> createNode(Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException;

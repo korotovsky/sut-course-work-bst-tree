@@ -5,7 +5,7 @@ import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
 import java.util.logging.Logger;
 
-public class Tree<T> extends TreeAbstract<T> {
+public class Tree<T> extends TreeBase<T> {
     private Logger logger;
 
     public Tree(Logger logger) {
