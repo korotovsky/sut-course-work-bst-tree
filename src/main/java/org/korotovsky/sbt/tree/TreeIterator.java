@@ -3,10 +3,10 @@ package org.korotovsky.sbt.tree;
 import java.util.Iterator;
 
 public class TreeIterator<T> implements Iterable<TreeNode<T>> {
-    private Tree<T> tree;
+    private Tree tree;
     private TreeNode<T> currentNode;
 
-    public TreeIterator(Tree<T> tree) {
+    public TreeIterator(Tree tree) {
         this.tree = tree;
     }
 
