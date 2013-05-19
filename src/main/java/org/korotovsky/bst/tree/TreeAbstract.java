@@ -24,7 +24,7 @@ public class TreeAbstract<T> implements TreeInterface<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public TreeNode<T> findNode(Comparable key, TreeNode<T> treeNode) {
+    public TreeNode<T> findNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException {
         if (treeNode == null) {
             throw new NotFoundTreeException(TREE_NODE_NOT_FOUND);
         }
@@ -47,7 +47,7 @@ public class TreeAbstract<T> implements TreeInterface<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public TreeNode<T> createNode(Comparable key, T data, TreeNode<T> treeNode) {
+    public TreeNode<T> createNode(Comparable key, T data, TreeNode<T> treeNode) throws DuplicateItemTreeException {
         if (treeNode == null) {
             treeNode = new TreeNode(key, data);
             changeTreeSize(1);
@@ -66,7 +66,7 @@ public class TreeAbstract<T> implements TreeInterface<T> {
     }
 
     @SuppressWarnings("unchecked")
-    protected TreeNode<T> removeNode(Comparable key, TreeNode<T> treeNode) {
+    public TreeNode<T> removeNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException {
         if (treeNode == null) {
             throw new NotFoundTreeException(TREE_NODE_NOT_FOUND);
         }
@@ -91,7 +91,7 @@ public class TreeAbstract<T> implements TreeInterface<T> {
         return treeNode;
     }
 
-    protected TreeNode<T> removeMin(TreeNode<T> treeNode) {
+    protected TreeNode<T> removeMin(TreeNode<T> treeNode) throws NotFoundTreeException {
         if (treeNode == null) {
             throw new NotFoundTreeException(TREE_NODE_NOT_FOUND);
         }
