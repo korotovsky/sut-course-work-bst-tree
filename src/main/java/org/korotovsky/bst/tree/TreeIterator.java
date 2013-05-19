@@ -1,8 +1,8 @@
-package org.korotovsky.sbt.tree;
+package org.korotovsky.bst.tree;
 
 import java.util.Iterator;
 
-public class TreeIterator<T> implements Iterable<TreeNode<T>> {
+public class TreeIterator<T> implements Iterable<T> {
     private Tree tree;
     private TreeNode<T> currentNode;
 
@@ -11,15 +11,15 @@ public class TreeIterator<T> implements Iterable<TreeNode<T>> {
     }
 
     @Override
-    public Iterator<TreeNode<T>> iterator() {
-        return new Iterator<TreeNode<T>>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
             @Override
             public boolean hasNext() {
                 return false;  //To change body of implemented methods use File | Settings | File Templates.
             }
 
             @Override
-            public TreeNode<T> next() {
+            public T next() {
                 return null;  //To change body of implemented methods use File | Settings | File Templates.
             }
 

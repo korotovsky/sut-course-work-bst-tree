@@ -1,4 +1,4 @@
-package org.korotovsky.sbt.tree;
+package org.korotovsky.bst.tree;
 
 interface TreeInterface<T> {
     public void changeTreeSize(Integer how);

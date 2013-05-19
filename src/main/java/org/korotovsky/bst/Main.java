@@ -1,8 +1,8 @@
-package org.korotovsky.sbt;
+package org.korotovsky.bst;
 
-import org.korotovsky.sbt.tree.Tree;
-import org.korotovsky.sbt.tree.TreeIterator;
-import org.korotovsky.sbt.tree.TreeNode;
+import org.korotovsky.bst.tree.Tree;
+import org.korotovsky.bst.tree.TreeIterator;
+import org.korotovsky.bst.tree.TreeNode;
 
 import java.util.logging.Logger;
 
@@ -19,9 +19,7 @@ public class Main {
 
         Integer size = tree.size();
 
-        TreeIterator treeIterator = new TreeIterator<TreeNode<String>>(tree);
-
-        for (TreeNode<String> treeNode : treeIterator) {
+        for (TreeNode<String> treeNode : new TreeIterator<TreeNode<String>>(tree)) {
             logger.info(treeNode.getData());
         }
     }

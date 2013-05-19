@@ -1,7 +1,7 @@
-package org.korotovsky.sbt.tree;
+package org.korotovsky.bst.tree;
 
-import org.korotovsky.sbt.tree.exceptions.DuplicateItemTreeException;
-import org.korotovsky.sbt.tree.exceptions.NotFoundTreeException;
+import org.korotovsky.bst.tree.exceptions.DuplicateItemTreeException;
+import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
 public class TreeAbstract<T> implements TreeInterface<T> {
     public static final String TREE_NODE_ALREADY_EXISTS = "TreeNode already exists";

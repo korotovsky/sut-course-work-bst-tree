@@ -1,4 +1,4 @@
-package org.korotovsky.sbt.tree;
+package org.korotovsky.bst.tree;
 
 public class TreeNode<T> {
     private TreeNode<T> rightChild;

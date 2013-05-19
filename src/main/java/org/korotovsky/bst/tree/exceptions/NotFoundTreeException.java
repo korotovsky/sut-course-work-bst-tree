@@ -1,6 +1,6 @@
-package org.korotovsky.sbt.tree.exceptions;
+package org.korotovsky.bst.tree.exceptions;
 
-import org.korotovsky.sbt.tree.TreeException;
+import org.korotovsky.bst.tree.TreeException;
 
 public class NotFoundTreeException extends TreeException {
     public NotFoundTreeException() {
