@@ -46,6 +46,6 @@ public class TreeNode<T> {
     }
 
     public String getLine() {
-        return "[" + getKey() + ", " + getData() + "]";
+        return getKey() + ":" + getData();
     }
 }

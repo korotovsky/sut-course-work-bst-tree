@@ -40,13 +40,13 @@ public class TreePrint<T> {
                         isRowEmpty = false;
                     }
                 } else {
-                    writer.write("[  ]");
+                    writer.write("---");
 
                     localStack.push(null);
                     localStack.push(null);
                 }
 
-                for (Integer j = 0; j < emptyLeaf * 2 - 4; j++) {
+                for (Integer j = 0; j < emptyLeaf * 2 - 3; j++) {
                     writer.write(' ');
                 }
             }

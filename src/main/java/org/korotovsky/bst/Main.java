@@ -20,6 +20,7 @@ public class Main {
         tree.create(7, "G");
         tree.create(9, "I");
         tree.create(8, "H");
+        tree.create(10, "K");
 
         Integer size = tree.size();
 
