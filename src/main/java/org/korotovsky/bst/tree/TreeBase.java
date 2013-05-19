@@ -14,6 +14,10 @@ public class TreeBase<T> implements TreeInterface<T> {
         return size;
     }
 
+    public Boolean isEmpty() {
+        return root == null;
+    }
+
     public void clear() {
         size = 0;
         root = null;
@@ -33,14 +37,6 @@ public class TreeBase<T> implements TreeInterface<T> {
             return findNode(key, treeNode.getLeftChild());
         } else if (key.compareTo(treeNode.getKey()) > 0) {
             return findNode(key, treeNode.getRightChild());
-        }
-
-        return treeNode;
-    }
-
-    protected TreeNode<T> findMin(TreeNode<T> treeNode) {
-        if (treeNode != null) {
-            return findMin(treeNode.getLeftChild());
         }
 
         return treeNode;
@@ -105,7 +101,11 @@ public class TreeBase<T> implements TreeInterface<T> {
         }
     }
 
-    public Boolean isEmpty() {
-        return root == null;
+    protected TreeNode<T> findMin(TreeNode<T> treeNode) {
+        if (treeNode != null) {
+            return findMin(treeNode.getLeftChild());
+        }
+
+        return treeNode;
     }
 }

@@ -4,9 +4,13 @@ import org.korotovsky.bst.tree.exceptions.DuplicateItemTreeException;
 import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
 interface TreeInterface<T> {
-    public void changeTreeSize(Integer how);
+    public Integer size();
 
     public Boolean isEmpty();
+
+    public void clear();
+
+    public void changeTreeSize(Integer how);
 
     public TreeNode<T> findNode(Comparable key, TreeNode<T> treeNode) throws NotFoundTreeException;
 
