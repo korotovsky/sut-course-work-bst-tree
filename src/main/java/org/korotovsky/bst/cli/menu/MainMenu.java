@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class MainMenu<T> extends Menu<T> {
+public class MainMenu extends Menu {
     public static final String SUCCESS_TREE_WAS_CLEANED = "SUCCESS: Tree was cleaned";
     public static final String SUCCESS_TREE_SIZE_IS = "SUCCESS: Tree size is: ";
     public static final String SUCCESS_TREE_IS_EMPTY = "SUCCESS: Tree is empty";
@@ -34,7 +34,7 @@ public class MainMenu<T> extends Menu<T> {
     public static final String ITEM_DELETE_NODE_BY_KEY = "Delete node by key";
     public static final String ITEM_ITERATOR_MENU = "Iterator menu";
 
-    public MainMenu(Tree<T> tree, BufferedWriter writer, BufferedReader reader) {
+    public MainMenu(Tree tree, BufferedWriter writer, BufferedReader reader) {
         super(tree, writer, reader);
 
         append(ITEM_PRINT_TREE);
@@ -94,7 +94,7 @@ public class MainMenu<T> extends Menu<T> {
             writer.flush();
         } else {
             try {
-                tree.create(key, (T) value); // Shit
+                tree.create(key, value); // Shit
                 writer.newLine();
                 writer.write(SUCCESS_NODE_CONTAINS + key + ":" + value);
             } catch (DuplicateItemTreeException e) {
@@ -134,7 +134,7 @@ public class MainMenu<T> extends Menu<T> {
             writer.flush();
         } else {
             try {
-                TreeNode<T> treeNode = tree.find(key);
+                TreeNode<String> treeNode = tree.find(key);
                 writer.newLine();
                 writer.write(SUCCESS_NODE_CONTAINS + treeNode.getLine());
             } catch (NotFoundTreeException e) {

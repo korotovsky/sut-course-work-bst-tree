@@ -7,13 +7,13 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-abstract public class Menu<T> implements MenuInterface {
+abstract public class Menu implements MenuInterface {
     protected ArrayList<String> items = new ArrayList<String>();
     protected BufferedWriter writer;
     protected BufferedReader reader;
-    protected Tree<T> tree;
+    protected Tree tree;
 
-    public Menu(Tree<T> tree, BufferedWriter writer, BufferedReader reader) {
+    public Menu(Tree tree, BufferedWriter writer, BufferedReader reader) {
         this.writer = writer;
         this.reader = reader;
         this.tree = tree;
