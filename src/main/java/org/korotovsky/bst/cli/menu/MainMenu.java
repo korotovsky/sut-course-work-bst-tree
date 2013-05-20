@@ -86,6 +86,7 @@ public class MainMenu<T> extends Menu<T> {
 
         writer.write(NOTICE_INPUT_NODE_DATA);
         writer.flush();
+
         String value = reader.readLine();
 
         if (key.equals("") || value.equals("")) {
