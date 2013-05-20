@@ -17,7 +17,7 @@ public class Main {
         Tree<String> tree = new Tree<String>(logger);
         tree.setIterator(new TreeIterator<String>(tree));
 
-        Cli cli = new Cli<String>(tree, reader, writer);
+        Cli cli = new Cli(tree, reader, writer);
         cli.dispatch();
 
 //        tree.create(6, "F");

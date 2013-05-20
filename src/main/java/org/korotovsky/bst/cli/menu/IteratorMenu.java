@@ -7,8 +7,8 @@ import org.korotovsky.bst.tree.Tree;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
-public class IteratorMenu<T> extends Menu<T> {
-    public IteratorMenu(Tree<T> tree, BufferedWriter writer, BufferedReader reader) {
+public class IteratorMenu extends Menu {
+    public IteratorMenu(Tree<String> tree, BufferedWriter writer, BufferedReader reader) {
         super(tree, writer, reader);
 
         append("Set cursor to root TreeNode");

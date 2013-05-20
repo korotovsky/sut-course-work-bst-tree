@@ -11,9 +11,9 @@ abstract public class Menu implements MenuInterface {
     protected ArrayList<String> items = new ArrayList<String>();
     protected BufferedWriter writer;
     protected BufferedReader reader;
-    protected Tree tree;
+    protected Tree<String> tree;
 
-    public Menu(Tree tree, BufferedWriter writer, BufferedReader reader) {
+    public Menu(Tree<String> tree, BufferedWriter writer, BufferedReader reader) {
         this.writer = writer;
         this.reader = reader;
         this.tree = tree;

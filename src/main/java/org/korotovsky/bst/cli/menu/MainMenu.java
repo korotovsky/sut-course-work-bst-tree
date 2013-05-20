@@ -34,7 +34,7 @@ public class MainMenu extends Menu {
     public static final String ITEM_DELETE_NODE_BY_KEY = "Delete node by key";
     public static final String ITEM_ITERATOR_MENU = "Iterator menu";
 
-    public MainMenu(Tree tree, BufferedWriter writer, BufferedReader reader) {
+    public MainMenu(Tree<String> tree, BufferedWriter writer, BufferedReader reader) {
         super(tree, writer, reader);
 
         append(ITEM_PRINT_TREE);

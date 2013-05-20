@@ -8,20 +8,20 @@ import org.korotovsky.bst.tree.TreeIterator;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
-public class Cli<T> {
+public class Cli {
     private BufferedWriter writer;
     private BufferedReader reader;
-    private Tree<T> tree;
+    private Tree<String> tree;
 
-    public Cli(Tree<T> tree, BufferedReader reader, BufferedWriter writer) {
+    public Cli(Tree<String> tree, BufferedReader reader, BufferedWriter writer) {
         this.reader = reader;
         this.writer = writer;
         this.tree = tree;
     }
 
     public void dispatch() {
-        IteratorMenu<T> iteratorMenu = new IteratorMenu<T>(tree, writer, reader);
-        MainMenu menu = new MainMenu<T>(tree, writer, reader);
+        IteratorMenu iteratorMenu = new IteratorMenu(tree, writer, reader);
+        MainMenu menu = new MainMenu(tree, writer, reader);
 
         MenuDispatcher menuDispatcher = new MenuDispatcher(writer, reader);
         menuDispatcher.addMenu(menu);
