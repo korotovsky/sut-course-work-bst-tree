@@ -7,15 +7,12 @@ import java.util.logging.Logger;
 
 public class TreeIterator<T> implements ListIterator<T> {
     private Logger logger;
+
     private TreeNode<T> root;
-
     private TreeNode<T> nextNode;
-    private Comparable nextNodeIndex;
-
     private TreeNode<T> previousNode;
-    private Comparable previousIndex;
 
-    public TreeIterator(Tree tree) {
+    public TreeIterator(Tree<T> tree) {
         TreeNode<T> root = tree.getRootNode();
 
         this.logger = tree.getLogger();
@@ -81,14 +78,19 @@ public class TreeIterator<T> implements ListIterator<T> {
         return value;
     }
 
+    public void rewind() {
+        previousNode = root;
+        nextNode = root;
+    }
+
     @Override
     public int nextIndex() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int previousIndex() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -27,7 +27,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.korotovsky.bst</mainClass>
+                            <mainClass>org.korotovsky.bst.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
