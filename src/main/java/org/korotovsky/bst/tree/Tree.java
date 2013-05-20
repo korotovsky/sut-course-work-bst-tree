@@ -35,32 +35,16 @@ public class Tree<T> extends TreeBase<T> {
         this.iterator = iterator;
     }
 
-    public TreeNode<T> find(Comparable key) {
-        TreeNode<T> treeNode = null;
-
-        try {
-            treeNode = findNode(key, root);
-        } catch (NotFoundTreeException e) {
-            logger.warning(e.getMessage());
-        }
-
-        return treeNode;
+    public TreeNode<T> find(Comparable key) throws NotFoundTreeException {
+        return findNode(key, root);
     }
 
-    public void create(Comparable key, T data) {
-        try {
-            root = createNode(root, key, data, root);
-        } catch (DuplicateItemTreeException e) {
-            logger.warning(e.getMessage());
-        }
+    public void remove(Comparable key) throws NotFoundTreeException {
+        root = removeNode(key, root);
     }
 
-    public void remove(Comparable key) {
-        try {
-            root = removeNode(key, root);
-        } catch (NotFoundTreeException e) {
-            logger.warning(e.getMessage());
-        }
+    public void create(Comparable key, T data) throws DuplicateItemTreeException {
+        root = createNode(root, key, data, root);
     }
 
     public void clear() {

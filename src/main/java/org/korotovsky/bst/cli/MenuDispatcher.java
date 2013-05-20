@@ -11,12 +11,13 @@ public class MenuDispatcher {
     private BufferedWriter writer;
     private BufferedReader reader;
 
-    public MenuDispatcher(BufferedWriter writer, BufferedReader reader, MainMenu mainMenu, IteratorMenu iteratorMenu) {
+    public MenuDispatcher(BufferedWriter writer, BufferedReader reader) {
         this.writer = writer;
         this.reader = reader;
+    }
 
-        menus.add(mainMenu);
-        menus.add(iteratorMenu);
+    public void addMenu(Menu menu) {
+        menus.add(menu);
     }
 
     public void dispatch() {
@@ -38,7 +39,7 @@ public class MenuDispatcher {
 
     private Integer getMenuIndex() {
         try {
-            writer.write("Input menu index [0]: ");
+            writer.write("Input menu index [Default=0]: ");
             writer.flush();
 
             return Integer.parseInt(reader.readLine());

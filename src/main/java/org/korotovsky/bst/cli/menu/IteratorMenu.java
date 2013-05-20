@@ -1,14 +1,15 @@
-package org.korotovsky.bst.cli;
+package org.korotovsky.bst.cli.menu;
 
-import org.korotovsky.bst.tree.TreeIterator;
+import org.korotovsky.bst.cli.Menu;
+import org.korotovsky.bst.cli.MenuDispatcher;
+import org.korotovsky.bst.tree.Tree;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
-public class IteratorMenu<T> extends Menu {
-    private TreeIterator<T> treeIterator;
-
-    public IteratorMenu(TreeIterator<T> treeIterator, BufferedWriter writer) {
-        super(writer);
+public class IteratorMenu<T> extends Menu<T> {
+    public IteratorMenu(Tree<T> tree, BufferedWriter writer, BufferedReader reader) {
+        super(tree, writer, reader);
 
         append("Set cursor to root TreeNode");
         append("Get data from cursor");
