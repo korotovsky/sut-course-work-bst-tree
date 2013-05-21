@@ -21,6 +21,10 @@ public class TreeIterator<T> implements ListIterator<T> {
         this.root = root;
     }
 
+    public TreeNode<T> getNode() {
+        return nextNode;
+    }
+
     @Override
     public boolean hasNext() {
         return nextNode != null;

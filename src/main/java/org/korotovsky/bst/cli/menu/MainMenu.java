@@ -3,6 +3,7 @@ package org.korotovsky.bst.cli.menu;
 import org.korotovsky.bst.cli.Menu;
 import org.korotovsky.bst.cli.MenuDispatcher;
 import org.korotovsky.bst.tree.Tree;
+import org.korotovsky.bst.tree.TreeIterator;
 import org.korotovsky.bst.tree.TreeNode;
 import org.korotovsky.bst.tree.exceptions.DuplicateItemTreeException;
 import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
@@ -32,7 +33,9 @@ public class MainMenu extends Menu {
     public static final String ITEM_CREATE_NODE = "Create node";
     public static final String ITEM_FIND_NODE_BY_KEY = "Find node by key";
     public static final String ITEM_DELETE_NODE_BY_KEY = "Delete node by key";
+    public static final String ITEM_TRAVERSE_TREE = "Traverse tree by Tt => t => Rt";
     public static final String ITEM_ITERATOR_MENU = "Iterator menu";
+    public static final String ITEM_EXIT = "Exit";
 
     public MainMenu(Tree<String> tree, BufferedWriter writer, BufferedReader reader) {
         super(tree, writer, reader);
@@ -44,7 +47,9 @@ public class MainMenu extends Menu {
         append(ITEM_CREATE_NODE);
         append(ITEM_FIND_NODE_BY_KEY);
         append(ITEM_DELETE_NODE_BY_KEY);
+        append(ITEM_TRAVERSE_TREE);
         append(ITEM_ITERATOR_MENU);
+        append(ITEM_EXIT);
     }
 
     public void dispatch(MenuDispatcher dispatcher, Integer index) throws IOException {
@@ -70,9 +75,40 @@ public class MainMenu extends Menu {
             case 6:
                 removeNode();
                 break;
+            case 7:
+                traverse();
+                break;
+            case 8:
+                dispatcher.setMenu(1);
+                break;
+            case 9:
+                exit();
+                break;
             default:
                 dispatcher.setMenu(1);
         }
+    }
+
+    private void exit() {
+        System.exit(0);
+    }
+
+    private void traverse() throws IOException {
+        TreeIterator<String> iterator = new TreeIterator<String>(tree);
+
+        writer.newLine();
+        if (tree.isEmpty()) {
+            
+        }
+
+        while (iterator.hasNext()) {
+            writer.write(iterator.getNode().getLine());
+            writer.write(" ");
+            iterator.next();
+        }
+
+        writer.newLine();
+        writer.flush();
     }
 
     private void printTree() throws IOException {

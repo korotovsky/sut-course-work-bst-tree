@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 
 public class Tree<T> extends TreeBase<T> {
     private Logger logger;
-    private TreeIterator<T> iterator;
 
     private Integer emptyLeaf = 32;
     private Boolean isRowEmpty = false;
@@ -25,14 +24,6 @@ public class Tree<T> extends TreeBase<T> {
 
     public TreeNode<T> getRootNode() {
         return root;
-    }
-
-    public TreeIterator<T> getIterator() {
-        return iterator;
-    }
-
-    public void setIterator(TreeIterator<T> iterator) {
-        this.iterator = iterator;
     }
 
     public TreeNode<T> find(Comparable key) throws NotFoundTreeException {

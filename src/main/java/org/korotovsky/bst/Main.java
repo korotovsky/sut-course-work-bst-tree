@@ -15,7 +15,6 @@ public class Main {
         Logger logger = Logger.getLogger("tree");
 
         Tree<String> tree = new Tree<String>(logger);
-        tree.setIterator(new TreeIterator<String>(tree));
 
         Cli cli = new Cli(tree, reader, writer);
         cli.dispatch();
