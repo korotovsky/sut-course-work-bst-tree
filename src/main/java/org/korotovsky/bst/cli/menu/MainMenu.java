@@ -98,7 +98,7 @@ public class MainMenu extends Menu {
 
         writer.newLine();
         if (tree.isEmpty()) {
-            
+
         }
 
         while (iterator.hasNext()) {

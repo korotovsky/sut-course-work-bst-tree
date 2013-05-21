@@ -3,6 +3,8 @@ package org.korotovsky.bst.tree;
 import org.korotovsky.bst.tree.exceptions.DuplicateItemTreeException;
 import org.korotovsky.bst.tree.exceptions.NotFoundTreeException;
 
+import java.io.IOException;
+
 public class TreeBase<T> implements TreeInterface<T> {
     public static final String TREE_NODE_ALREADY_EXISTS = "TreeNode already exists";
     public static final String TREE_NODE_NOT_FOUND = "TreeNode not found";
@@ -40,6 +42,34 @@ public class TreeBase<T> implements TreeInterface<T> {
         }
 
         return treeNode;
+    }
+
+    public TreeNode<T> createRootNode(TreeNode<T> treeNode, Comparable key, T data) throws IOException {
+        if (treeNode == null) {
+            return new TreeNode<T>(null, key, data);
+        } else if (key.compareTo(treeNode.getKey()) == 0) {
+            return treeNode;
+        } else if (key.compareTo(treeNode.getKey()) < 0) {
+            treeNode.setLeftChild(createRootNode(treeNode.getLeftChild(), key, data));
+        }
+
+        return treeNode;
+    }
+
+    public TreeNode<T> leftRotate(TreeNode<T> treeNode) {
+        TreeNode<T> node = treeNode.getRightChild();
+        treeNode.setRightChild(node.getLeftChild());
+        node.setLeftChild(treeNode);
+
+        return node;
+    }
+
+    public TreeNode<T> rightRotate(TreeNode<T> treeNode) {
+        TreeNode<T> node = treeNode.getLeftChild();
+        treeNode.setLeftChild(node.getRightChild());
+        node.setRightChild(treeNode);
+
+        return node;
     }
 
     @SuppressWarnings("unchecked")
